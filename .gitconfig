@@ -1,0 +1,25 @@
+[core]
+	editor = vim
+
+[alias]
+	ls = log --pretty=format:"%C(cyan)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(cyan)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --numstat
+	la = "!git config -l | grep alias | cut -c 7-"
+	ac = !git add -A && git commit -m
+	co = checkout
+	br = branch
+	last = log -1 HEAD --stat
+	fap = fetch --all --prune
+	gtfo = !git reset --hard && git clean -fd
+	wip = !git add -A && git commit -m \"WIP\"
+	unwip = reset HEAD~1
+[user]
+	name = Ian Ter Haar
+	email = ***@gmail.com
+[pull]
+	rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
