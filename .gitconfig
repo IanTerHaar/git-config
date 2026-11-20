@@ -13,6 +13,7 @@
 	gtfo = !git reset --hard && git clean -fd
 	wip = !git add -A && git commit -m \"WIP\"
 	unwip = reset HEAD~1
+	heatmap = "!f() { git log --since=\"${1:-6 months ago}\" --pretty=format: --name-only | grep -v \"^$\" | sort | uniq -c | sort -rn | head -n 20; }; f"
 [user]
 	name = Ian Ter Haar
 	email = ***@gmail.com
